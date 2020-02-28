@@ -24,14 +24,13 @@ const ColorList = ({ colors, updateColors }) => {
     // where is is saved right now?
 
     axiosWithAuth()
-    .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
-    updateColors([...colors]);
-
+      .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
+      updateColors([...colors]);
   };
 
 
   const deleteColor = color => {
-    // make a delete request to delete this color
+    axiosWithAuth().delete(`/api/colors/${color.id}`)
   };
 
   return (
